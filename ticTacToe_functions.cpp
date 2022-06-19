@@ -30,13 +30,19 @@ int GetChoice(){
     int choice;
     std::cout << "Please choose you move (enter  1 - 9):  \n";
     std::cin >> choice;
-    return choice; 
+    return choice;
 
 }
 
-int PlayerTurn(int player){
+int PlayerTurn(int player, int already_chosen[]){
+    int choice;
     std::cout << "It is player " << player << "'s turn.\n";
-    int choice = GetChoice();
+    
+    do{
+        choice = GetChoice();
+    }
+    while (choice == already_chosen[choice-1]);
+
     return choice;
 }
 

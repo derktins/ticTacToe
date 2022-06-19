@@ -9,18 +9,22 @@ int main(){
     int player = 1;
     bool game_over = false;
     int num_moves = 0;
+    int already_chosen[9];
 
     ExplainGame(board_state);
     std::cout << "\n\n";
 
     while (game_over == false){
-        char choice = PlayerTurn(player);
+        char choice = PlayerTurn(player, already_chosen);
+        
         
         if (player == 1){
             board_state[choice - 1] = 'X';
+            already_chosen[choice - 1] = choice;
         }
         else{
             board_state[choice - 1] = 'O';
+            already_chosen[choice-1] = choice;
         }
 
 

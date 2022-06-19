@@ -8,6 +8,6 @@
 void ExplainGame(char input[]);
 void PrintBoard(char input[]);
 int GetChoice();
-int PlayerTurn(int player);
+int PlayerTurn(int player, int already_chosen[]);
 int SwitchPlayer(int player);
 bool IsGameOver(int input[], int num_moves);
