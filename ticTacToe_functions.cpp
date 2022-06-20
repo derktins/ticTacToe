@@ -9,7 +9,7 @@ using namespace std;
   
 
 
-
+//Function which prints the game board displaying numbers for each space on the board and adding X's and O's to it as the game is played
 void PrintBoard(char input[]){
     std::cout << "    |    |    \n";
     std::cout << "  " << input[0] << " |  " << input[1] << " |  " << input[2]<< " \n";
@@ -23,7 +23,7 @@ void PrintBoard(char input[]){
 }
 
 
-
+//Function that prints a welcome message and an explanation of how the game is played.
 void ExplainGame(char input[]){
     std::cout << "Welcome to Tic Tac Toe.  Please note the numbering system on the board below.  You will make your moves by entering a number corresponding with the spaces on the board.\n\n";
 
@@ -36,7 +36,7 @@ void ExplainGame(char input[]){
 
 
 
-
+//function which asks the user for an integer input and rejects any non integer inputs.
 int GetChoice(){
     cout << "Enter a number 1-9 to make your move.\n";
     int x = 0;
@@ -50,6 +50,7 @@ int GetChoice(){
 
 }
 
+//Function which calls GetChoice() for the user's desired play.  Will reject any input not between 1 and 9 or any choice which has already been played.
 int PlayerTurn(int player, int already_chosen[]){
     char choice;
     std::cout << "It is player " << player << "'s turn.\n";
@@ -67,6 +68,7 @@ int PlayerTurn(int player, int already_chosen[]){
     return choice;
 }
 
+//Function which changes the state of variable "player, which is used to keep track of which player's turn it is."
 int SwitchPlayer(int player){
     if (player == 1){
         return 2;
@@ -80,7 +82,7 @@ int SwitchPlayer(int player){
 
 
 
-
+//This function is called at the end of each turn to check if the game is over.  Will end the game if any player satisfies win conditions or if all spaces are played.
 bool IsGameOver(char input[], int num_moves){
     if (num_moves > 8){
         return true;
