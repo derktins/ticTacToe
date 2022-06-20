@@ -1,6 +1,8 @@
 // header file for ticTacToe.cpp
 
 #include <iostream>
+#include <ios>
+#include <limits>
 #include "ticTacToe_functions.cpp"
 
 

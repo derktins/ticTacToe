@@ -1,6 +1,8 @@
 // a tic tac toe game with 2 players.  Players take turns entering their move in the console
 
 #include <iostream>
+#include <ios>
+#include <limits>
 #include "ticTacToe.hpp"
 
 int main(){

@@ -1,6 +1,11 @@
 // functions for ticTacToe.cpp
 
-# include <iostream>
+#include <iostream>
+#include <ios>
+#include <limits>
+
+
+using namespace std;
   
 
 
@@ -26,22 +31,38 @@ void ExplainGame(char input[]){
 
 }
 
+
+
+
+
+
+
 int GetChoice(){
-    int choice;
-    std::cout << "Please choose you move (enter  1 - 9):  \n";
-    std::cin >> choice;
-    return choice;
+    cout << "Enter a number 1-9 to make your move.\n";
+    int x = 0;
+    while(!(cin >> x)){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "Invalid input.  Please choose a number 1-9.\n";
+    }
+
+    return x;
 
 }
 
 int PlayerTurn(int player, int already_chosen[]){
-    int choice;
+    char choice;
     std::cout << "It is player " << player << "'s turn.\n";
     
-    do{
+    choice = GetChoice();
+
+    while (choice > 9 || choice < 1 || choice == already_chosen[choice-1]){
+        cout << "Please choose a number between 1 and 9 which has not already been played.\n";
         choice = GetChoice();
     }
-    while (choice == already_chosen[choice-1]);
+  
+    
+    
 
     return choice;
 }
